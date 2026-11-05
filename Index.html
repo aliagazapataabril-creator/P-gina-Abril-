@@ -1,0 +1,1491 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abril Aliaga | Mi espacio digital</title>
+
+<style>
+/* =========================
+   1. VARIABLES Y ESTILOS
+========================= */
+
+:root {
+    --fondo: #080d1b;
+    --tarjeta: #111a2e;
+    --tarjeta2: #1b2740;
+    --texto: #f1f5ff;
+    --secundario: #a9b6d0;
+    --azul: #4da3ff;
+    --morado: #a78bfa;
+    --verde: #52e0ae;
+    --amarillo: #ffd166;
+    --borde: rgba(255,255,255,0.12);
+}
+
+body.claro {
+    --fondo: #f2f5ff;
+    --tarjeta: #ffffff;
+    --tarjeta2: #e6edff;
+    --texto: #17213a;
+    --secundario: #596780;
+    --azul: #246fe5;
+    --morado: #7854d8;
+    --verde: #168b68;
+    --amarillo: #d99400;
+    --borde: rgba(22,35,65,0.13);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    background: var(--fondo);
+    color: var(--texto);
+    transition: 0.4s;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+/* =========================
+   2. BARRA DE NAVEGACIÓN
+========================= */
+
+header {
+    background: var(--tarjeta);
+    border-bottom: 1px solid var(--borde);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: var(--verde);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--secundario);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--verde);
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.icon-btn, .menu-btn {
+    background: var(--tarjeta2);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    padding: 10px 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.menu-btn {
+    display: none;
+}
+
+/* =========================
+   3. PRESENTACIÓN
+========================= */
+
+.hero {
+    padding: 100px 0;
+    background:
+    radial-gradient(circle at 85% 20%,
+    rgba(130,90,255,0.18), transparent 35%);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.etiqueta {
+    color: var(--verde);
+    font-weight: bold;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    font-size: clamp(40px, 6vw, 70px);
+    line-height: 1.1;
+    margin: 20px 0;
+}
+
+.degradado {
+    background: linear-gradient(
+        90deg,
+        var(--azul),
+        var(--morado),
+        var(--verde)
+    );
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    color: var(--secundario);
+    font-size: 18px;
+    max-width: 600px;
+}
+
+.botones {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 13px 22px;
+    border-radius: 12px;
+    font-weight: bold;
+    border: 1px solid var(--borde);
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+}
+
+.btn-principal {
+    background: linear-gradient(100deg, var(--azul), var(--morado));
+    color: white;
+    border: none;
+}
+
+.btn-secundario {
+    background: var(--tarjeta);
+    color: var(--texto);
+}
+
+.perfil {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 28px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+}
+
+.avatar {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    margin: auto auto 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 75px;
+    background: linear-gradient(
+        130deg,
+        var(--azul),
+        var(--morado),
+        var(--verde)
+    );
+}
+
+.perfil p {
+    margin-top: 5px;
+}
+
+.estadisticas {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 25px;
+}
+
+.estadisticas strong {
+    color: var(--verde);
+    display: block;
+    font-size: 23px;
+}
+
+/* =========================
+   4. SECCIONES GENERALES
+========================= */
+
+section {
+    padding: 75px 0;
+}
+
+.titulo-seccion {
+    margin-bottom: 35px;
+}
+
+.titulo-seccion small {
+    color: var(--morado);
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+.titulo-seccion h2 {
+    font-size: 38px;
+    margin: 8px 0;
+}
+
+.titulo-seccion p {
+    color: var(--secundario);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.tarjeta {
+    padding: 25px;
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+    border-color: var(--morado);
+}
+
+.tarjeta h3 {
+    margin-bottom: 12px;
+}
+
+.tarjeta p {
+    color: var(--secundario);
+}
+
+.etiquetas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.etiquetas span {
+    background: var(--tarjeta2);
+    color: var(--verde);
+    padding: 7px 13px;
+    border-radius: 30px;
+    font-size: 13px;
+}
+
+/* =========================
+   5. MI HORARIO
+========================= */
+
+.horario {
+    display: grid;
+    gap: 15px;
+}
+
+.horario-item {
+    display: flex;
+    gap: 25px;
+    padding: 20px;
+    background: var(--tarjeta);
+    border-radius: 15px;
+    border: 1px solid var(--borde);
+}
+
+.hora {
+    min-width: 125px;
+    color: var(--verde);
+    font-weight: bold;
+}
+
+/* =========================
+   6. INTERESES
+========================= */
+
+.intereses {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.interes {
+    background: var(--tarjeta);
+    border: 1px solid var(--borde);
+    padding: 25px;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.interes:hover {
+    transform: translateY(-7px);
+    border-color: var(--azul);
+}
+
+.interes .emoji {
+    font-size: 35px;
+}
+
+.interes h3 {
+    margin: 12px 0;
+}
+
+.interes p {
+    color: var(--secundario);
+}
+
+/* =========================
+   7. CARRUSEL DE FOTOGRAFÍAS
+========================= */
+
+.carrusel {
+    background: var(--tarjeta);
+    padding: 15px;
+    border-radius: 25px;
+    border: 1px solid var(--borde);
+}
+
+.slide {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 25px;
+    animation: aparecer 0.5s;
+}
+
+.slide.activo {
+    display: grid;
+}
+
+.slide img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    border-radius: 17px;
+}
+
+.slide-texto {
+    padding: 20px;
+}
+
+.slide-texto h3 {
+    font-size: 27px;
+    margin: 10px 0;
+}
+
+.slide-texto p {
+    color: var(--secundario);
+}
+
+.controles {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.controles button {
+    background: var(--tarjeta2);
+    color: var(--texto);
+    border: 1px solid var(--borde);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.puntos {
+    display: flex;
+    gap: 8px;
+}
+
+.punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: none;
+    background: var(--secundario);
+    cursor: pointer;
+}
+
+.punto.activo {
+    background: var(--verde);
+    width: 25px;
+    border-radius: 10px;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   8. FORMULARIO
+========================= */
+
+.contacto-grid {
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 25px;
+}
+
+.contacto-info {
+    background: linear-gradient(140deg, #172b50, #30205b);
+    color: white;
+    padding: 30px;
+    border-radius: 22px;
+}
+
+.contacto-info p {
+    color: #d3dcf4;
+    margin-top: 15px;
+}
+
+.redes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.redes a {
+    background: rgba(255,255,255,0.12);
+    padding: 10px 15px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.redes a:hover {
+    background: var(--verde);
+    color: #08101b;
+}
+
+form {
+    background: var(--tarjeta);
+    padding: 30px;
+    border-radius: 22px;
+    border: 1px solid var(--borde);
+}
+
+.campo {
+    margin-bottom: 18px;
+}
+
+.campo label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+}
+
+.campo input,
+.campo textarea {
+    width: 100%;
+    padding: 13px;
+    background: var(--fondo);
+    border: 1px solid var(--borde);
+    border-radius: 11px;
+    color: var(--texto);
+    outline: none;
+}
+
+.campo input:focus,
+.campo textarea:focus {
+    border-color: var(--azul);
+}
+
+.campo input.valido,
+.campo textarea.valido {
+    border: 1px solid var(--verde);
+}
+
+.campo input.invalido,
+.campo textarea.invalido {
+    border: 1px solid #ff526f;
+}
+
+.mensaje-validacion {
+    font-size: 13px;
+    display: block;
+    margin-top: 5px;
+    color: var(--secundario);
+}
+
+.error {
+    color: #ff526f;
+}
+
+.exito {
+    color: var(--verde);
+}
+
+#resultado {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+/* =========================
+   9. PIE DE PÁGINA
+========================= */
+
+footer {
+    border-top: 1px solid var(--borde);
+    padding: 30px;
+    text-align: center;
+    color: var(--secundario);
+}
+
+/* =========================
+   10. DISEÑO RESPONSIVE
+========================= */
+
+@media(max-width: 800px) {
+
+    .hero-content,
+    .grid,
+    .contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .intereses {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: var(--tarjeta);
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links.abierto {
+        display: flex;
+    }
+
+    .slide {
+        grid-template-columns: 1fr;
+    }
+
+    .slide img {
+        height: 270px;
+    }
+}
+
+@media(max-width: 500px) {
+
+    .intereses {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+    }
+
+    .horario-item {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     MENÚ PRINCIPAL
+========================= -->
+
+<header>
+<div class="container navbar">
+
+    <a href="#inicio" class="logo">
+        ABRIL<span>.</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="#sobre-mi">Sobre mí</a>
+        <a href="#horario">Mi horario</a>
+        <a href="#intereses">Intereses</a>
+        <a href="#momentos">Momentos</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button class="icon-btn" id="temaBtn"
+        aria-label="Cambiar tema">☀️</button>
+
+        <button class="menu-btn" id="menuBtn"
+        aria-label="Abrir menú" aria-expanded="false">☰</button>
+    </div>
+
+</div>
+</header>
+
+<main>
+
+<!-- =========================
+     PRESENTACIÓN
+========================= -->
+
+<section class="hero" id="inicio">
+
+<div class="container hero-content">
+
+    <div>
+
+        <span class="etiqueta">
+            ✦ MI ESPACIO DIGITAL
+        </span>
+
+        <h1>
+            Hola, soy<br>
+            <span class="degradado">
+                Abril Aliaga.
+            </span>
+        </h1>
+
+        <p>
+            Estudiante de Ingeniería de Sistemas,
+            apasionada por la tecnología, la música,
+            el baile y los pequeños momentos que
+            hacen especial cada día.
+        </p>
+
+        <div class="botones">
+
+            <a href="#sobre-mi"
+            class="btn btn-principal">
+                Conóceme ↗
+            </a>
+
+            <a href="#contacto"
+            class="btn btn-secundario">
+                Contáctame
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="perfil">
+
+        <div class="avatar">👩🏻‍💻</div>
+
+        <h2>ALIAGA ZAPATA</h2>
+        <h3>ABRIL SALOME</h3>
+
+        <p>Ingeniería de Sistemas · UPDS</p>
+
+        <div class="estadisticas">
+
+            <div>
+                <strong>21</strong>
+                <small>Años</small>
+            </div>
+
+            <div>
+                <strong>LP</strong>
+                <small>La Paz</small>
+            </div>
+
+            <div>
+                <strong>💻</strong>
+                <small>Tech</small>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     SOBRE MÍ
+========================= -->
+
+<section id="sobre-mi">
+
+<div class="container">
+
+    <div class="titulo-seccion">
+        <small>01 / PERFIL</small>
+        <h2>Un poco sobre mí</h2>
+        <p>Mi presente combina aprendizaje,
+        disciplina y creatividad.</p>
+    </div>
+
+    <div class="grid">
+
+        <div class="tarjeta">
+
+            <h3>🎓 Formación académica</h3>
+
+            <p>
+                Estudio Ingeniería de Sistemas
+                en la Universidad Privada Domingo Savio,
+                en la ciudad de La Paz.
+            </p>
+
+            <div class="etiquetas">
+                <span>Ingeniería de Sistemas</span>
+                <span>UPDS</span>
+                <span>La Paz</span>
+            </div>
+
+        </div>
+
+        <div class="tarjeta">
+
+            <h3>💻 Conocimientos tecnológicos</h3>
+
+            <p>
+                Durante mi formación académica
+                he utilizado diferentes lenguajes
+                de programación.
+            </p>
+
+            <div class="etiquetas">
+                <span>C++</span>
+                <span>Java</span>
+                <span>HTML</span>
+                <span>JavaScript</span>
+            </div>
+
+        </div>
+
+        <div class="tarjeta">
+
+            <h3>📚 Materias actuales</h3>
+
+            <p>
+                Actualmente forman parte de mi
+                formación Diseño Web II y
+                Contabilidad Empresarial.
+            </p>
+
+        </div>
+
+        <div class="tarjeta">
+
+            <h3>🎨 Mis colores favoritos</h3>
+
+            <p>
+                Azul, morado, negro y verde.
+                Colores que representan mi estilo
+                y la identidad visual de esta página.
+            </p>
+
+            <div class="etiquetas">
+                <span>Azul</span>
+                <span>Morado</span>
+                <span>Negro</span>
+                <span>Verde</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     HORARIO
+========================= -->
+
+<section id="horario">
+
+<div class="container">
+
+    <div class="titulo-seccion">
+        <small>02 / ORGANIZACIÓN</small>
+        <h2>Mi día a día</h2>
+        <p>Un equilibrio entre estudio y tiempo personal.</p>
+    </div>
+
+    <div class="horario">
+
+        <div class="horario-item">
+            <span class="hora">08:30 – 11:45</span>
+            <div>
+                <h3>🎓 Universidad</h3>
+                <p>Clases durante la mañana.</p>
+            </div>
+        </div>
+
+        <div class="horario-item">
+            <span class="hora">Tarde</span>
+            <div>
+                <h3>✨ Tiempo personal</h3>
+                <p>
+                    Realizo tareas, hago ejercicio
+                    y dedico un espacio a la lectura.
+                </p>
+            </div>
+        </div>
+
+        <div class="horario-item">
+            <span class="hora">19:00 – 22:00</span>
+            <div>
+                <h3>📖 Universidad</h3>
+                <p>Continúo con mis clases por la noche.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     INTERESES
+========================= -->
+
+<section id="intereses">
+
+<div class="container">
+
+    <div class="titulo-seccion">
+        <small>03 / MIS GUSTOS</small>
+        <h2>Lo que me apasiona</h2>
+        <p>Una combinación de música, entretenimiento
+        y actividades.</p>
+    </div>
+
+    <div class="intereses">
+
+        <div class="interes">
+            <div class="emoji">🎧</div>
+            <h3>Música</h3>
+            <p>
+                Me gustan el K-pop, instrumental,
+                cumbia, reguetón y baladas.
+                Mis artistas favoritos son BTS,
+                Stray Kids, Selena Gómez, ENHYPEN,
+                Karol G y Coldplay.
+            </p>
+        </div>
+
+        <div class="interes">
+            <div class="emoji">🎬</div>
+            <h3>Series y películas</h3>
+            <p>
+                Me gustan las películas de terror
+                y horror. Entre las series que
+                disfruto están Stranger Things,
+                Dead and Job y The Wonderfools.
+            </p>
+        </div>
+
+        <div class="interes">
+            <div class="emoji">💃</div>
+            <h3>Baile y deportes</h3>
+            <p>
+                Me gusta bailar y practicar
+                básquet, bádminton, futsal
+                y patinaje sobre hielo.
+            </p>
+        </div>
+
+        <div class="interes">
+            <div class="emoji">💻</div>
+            <h3>Tecnología</h3>
+            <p>
+                Me interesa aprender programación,
+                desarrollar páginas web y descubrir
+                nuevas herramientas tecnológicas.
+            </p>
+        </div>
+
+        <div class="interes">
+            <div class="emoji">💜</div>
+            <h3>Creatividad</h3>
+            <p>
+                Disfruto descubrir nuevas ideas,
+                compartir experiencias y
+                expresarme a través de diferentes
+                actividades.
+            </p>
+        </div>
+
+        <div class="interes">
+            <div class="emoji">🌟</div>
+            <h3>Mi personalidad</h3>
+            <p>
+                Me gusta combinar mis responsabilidades
+                académicas con actividades que me
+                permiten disfrutar y aprender.
+            </p>
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     CARRUSEL
+========================= -->
+
+<section id="momentos">
+
+<div class="container">
+
+    <div class="titulo-seccion">
+        <small>04 / MIS RECUERDOS</small>
+        <h2>Momentos especiales</h2>
+        <p>Experiencias que merecen ser recordadas.</p>
+    </div>
+
+    <div class="carrusel">
+
+        <!-- FOTO 1 -->
+
+        <div class="slide activo">
+
+            <img src="foto1.jpeg"
+            alt="Comida con amigos">
+
+            <div class="slide-texto">
+
+                <small class="etiqueta">AMISTAD</small>
+
+                <h3>🍔 Comida con amigos</h3>
+
+                <p>
+                    Los momentos sencillos también
+                    se convierten en recuerdos
+                    especiales. Compartir una comida,
+                    conversar y reír hacen que
+                    cada encuentro sea único.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FOTO 2 -->
+
+        <div class="slide">
+
+            <img src="foto2.jpeg"
+            alt="Presentación de caporales">
+
+            <div class="slide-texto">
+
+                <small class="etiqueta">CULTURA</small>
+
+                <h3>💃 Presentación de caporales</h3>
+
+                <p>
+                    Una experiencia llena de energía,
+                    música, expresión y entusiasmo.
+                    Un momento especial que representa
+                    el esfuerzo y la pasión por el baile.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- FOTO 3 -->
+
+        <div class="slide">
+
+            <img src="foto3.jpeg"
+            alt="Recuerdo de un viaje">
+
+            <div class="slide-texto">
+
+                <small class="etiqueta">AVENTURA</small>
+
+                <h3>🌄 Un buen viaje</h3>
+
+                <p>
+                    Conocer nuevos lugares, disfrutar
+                    de paisajes y vivir experiencias
+                diferentes siempre deja recuerdos
+                    inolvidables.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="controles">
+
+            <button id="anterior"
+            aria-label="Fotografía anterior">❮</button>
+
+            <div class="puntos" id="puntos">
+
+                <button class="punto activo"
+                aria-label="Mostrar foto 1"></button>
+
+                <button class="punto"
+                aria-label="Mostrar foto 2"></button>
+
+                <button class="punto"
+                aria-label="Mostrar foto 3"></button>
+                 </div>
+
+            <button id="siguiente"
+            aria-label="Fotografía siguiente">❯</button>
+
+        </div>
+
+    </div>
+
+</div>
+</section>
+
+<!-- =========================
+     CONTACTO Y FORMULARIO
+========================= -->
+
+<section id="contacto">
+
+<div class="container">
+
+    <div class="titulo-seccion">
+        <small>05 / CONTACTO</small>
+        <h2>¡Conectemos!</h2>
+        <p>Será un gusto compartir y conectar.</p>
+    </div>
+
+    <div class="contacto-grid">
+
+        <div class="contacto-info">
+
+            <h2>💬 Hablemos</h2>
+<p>
+                Puedes encontrarme en mis redes sociales.
+                También puedes completar el formulario
+                para probar las validaciones.
+            </p>
+
+            <div class="redes">
+
+                <a href="https://wa.me/qr/CQXNXANWIC5RG1"
+                target="_blank" rel="noopener">
+                    WhatsApp ↗
+                </a>
+
+                <a href="https://www.facebook.com/share/1D5jWM4sxh/"
+                target="_blank" rel="noopener">
+                    Facebook ↗
+                </a>
+                  <a href="https://www.tiktok.com/@abrilaliaga145?_r=1&_t=ZS-9B8VfwXlJmG"
+                target="_blank" rel="noopener">
+                    TikTok ↗
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- FORMULARIO -->
+
+        <form id="formulario" novalidate>
+
+            <div class="campo">
+
+                <label for="nombre">Nombre completo</label>
+
+                <input type="text"
+                id="nombre"
+                placeholder="Ingresa tu nombre">
+
+                <span class="mensaje-validacion"
+                id="errorNombre">
+                    Solo se permiten letras y espacios.
+                      </span>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="correo">Correo electrónico</label>
+
+                <input type="email"
+                id="correo"
+                placeholder="ejemplo@gmail.com">
+
+                <span class="mensaje-validacion"
+                id="errorCorreo"></span>
+
+            </div>
+
+            <div class="campo">
+
+                <label for="asunto">Asunto</label>
+
+                <input type="text"
+                id="asunto"
+                placeholder="Escribe el asunto">
+
+                <span class="mensaje-validacion"
+                id="errorAsunto"></span>
+                           </div>
+
+            <div class="campo">
+
+                <label for="mensaje">Mensaje</label>
+
+                <textarea id="mensaje"
+                rows="4"
+                placeholder="Escribe tu mensaje"></textarea>
+
+                <span class="mensaje-validacion"
+                id="errorMensaje"></span>
+
+            </div>
+
+            <button type="submit"
+            class="btn btn-principal">
+                Validar formulario ↗
+            </button>
+
+            <p id="resultado" aria-live="polite"></p>
+
+            <small>
+                Formulario demostrativo: no almacena
+                ni envía información.
+                </small>
+
+        </form>
+
+    </div>
+
+</div>
+</section>
+
+</main>
+
+<footer>
+
+    <p>
+        © 2026 Abril Aliaga |
+        Diseñado con creatividad y tecnología 💜
+    </p>
+
+</footer>
+
+<script>
+
+/* =========================
+   1. MÉTODO HAMBURGUESA
+========================= */
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", function() {
+    navLinks.classList.toggle("abierto");
+
+    const abierto = navLinks.classList.contains("abierto");
+
+    menuBtn.textContent = abierto ? "✕" : "☰";
+    menuBtn.setAttribute("aria-expanded", abierto);
+
+});
+
+// Cerrar el menú al seleccionar una sección.
+
+document.querySelectorAll(".nav-links a").forEach(function(enlace) {
+
+    enlace.addEventListener("click", function() {
+
+        navLinks.classList.remove("abierto");
+        menuBtn.textContent = "☰";
+        menuBtn.setAttribute("aria-expanded", "false");
+    });
+
+});
+
+
+/* =========================
+   2. FILTRO CLARO Y OSCURO
+========================= */
+
+const temaBtn = document.getElementById("temaBtn");
+
+temaBtn.addEventListener("click", function() {
+
+    document.body.classList.toggle("claro");
+
+    if(document.body.classList.contains("claro")) {
+
+        temaBtn.textContent = "🌙";
+
+    } else {
+
+        temaBtn.textContent = "☀️";
+
+    }
+
+});
+const slides = document.querySelectorAll(".slide");
+const puntos = document.querySelectorAll(".punto");
+
+let indiceActual = 0;
+
+function mostrarSlide(indice) {
+
+    indiceActual = (indice + slides.length) % slides.length;
+
+    slides.forEach(function(slide, i) {
+
+        slide.classList.toggle("activo", i === indiceActual);
+
+    });
+
+    puntos.forEach(function(punto, i) {
+
+        punto.classList.toggle("activo", i === indiceActual);
+
+    });
+
+}
+document.getElementById("siguiente").addEventListener("click", function() {
+
+    mostrarSlide(indiceActual + 1);
+
+});
+
+document.getElementById("anterior").addEventListener("click", function() {
+
+    mostrarSlide(indiceActual - 1);
+
+});
+
+puntos.forEach(function(punto, i) {
+
+    punto.addEventListener("click", function() {
+
+        mostrarSlide(i);
+
+    });
+
+});
+const nombre = document.getElementById("nombre");
+const correo = document.getElementById("correo");
+const asunto = document.getElementById("asunto");
+const mensaje = document.getElementById("mensaje");
+
+// Función general de validación.
+
+function validarCampo(campo, expresion, idError, mensajeError) {
+
+    const error = document.getElementById(idError);
+
+    if(campo.value.trim() === "") {
+
+        campo.classList.remove("valido", "invalido");
+        error.textContent = "";
+        error.className = "mensaje-validacion";
+
+        return false;
+
+    }
+
+    if(!expresion.test(campo.value.trim())) {
+
+        campo.classList.add("invalido");
+        campo.classList.remove("valido");
+
+        error.textContent = "✖ " + mensajeError;
+        error.className = "mensaje-validacion error";
+
+        return false;
+
+    }
+
+    campo.classList.add("valido");
+    campo.classList.remove("invalido");
+
+    error.textContent = "✓ Dato válido";
+    error.className = "mensaje-validacion exito";
+
+    return true;
+
+}
+
+// Validación del nombre: no permite números.
+
+nombre.addEventListener("input", function() {
+
+    validarCampo(
+        nombre,
+        /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:[ '-][A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/,
+        "errorNombre",
+        "Nombre no válido. No puede contener números ni símbolos."
+    );
+});
+
+// Validación del correo electrónico.
+
+correo.addEventListener("input", function() {
+
+    validarCampo(
+        correo,
+        /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+        "errorCorreo",
+        "Ingresa un correo electrónico válido."
+    );
+
+});
+
+// Validación del asunto.
+
+asunto.addEventListener("input", function() {
+
+    validarCampo(
+        asunto,
+        /^.{3,}$/,
+        "errorAsunto",
+        "El asunto debe tener al menos 3 caracteres."
+    );
+});
+
+// Validación del mensaje.
+
+mensaje.addEventListener("input", function() {
+
+    validarCampo(
+        mensaje,
+        /^.{10,}$/,
+        "errorMensaje",
+        "El mensaje debe tener al menos 10 caracteres."
+    );
+
+});
+
+
+/* =========================
+   5. VALIDACIÓN DEL FORMULARIO
+========================= */
+
+const formulario = document.getElementById("formulario");
+
+formulario.addEventListener("submit", function(evento) {
+
+    evento.preventDefault();
+    const nombreValido = validarCampo(
+        nombre,
+        /^[A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+(?:[ '-][A-Za-zÁÉÍÓÚÜÑáéíóúüñ]+)*$/,
+        "errorNombre",
+        "Nombre no válido. No puede contener números ni símbolos."
+    );
+
+    const correoValido = validarCampo(
+        correo,
+        /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/,
+        "errorCorreo",
+        "Correo electrónico no válido."
+    );
+
+    const asuntoValido = validarCampo(
+        asunto,
+        /^.{3,}$/,
+        "errorAsunto",
+        "El asunto debe tener al menos 3 caracteres."
+    );
+    const mensajeValido = validarCampo(
+        mensaje,
+        /^.{10,}$/,
+        "errorMensaje",
+        "El mensaje debe tener al menos 10 caracteres."
+    );
+
+    const resultado = document.getElementById("resultado");
+
+    // Comprobar si todos los campos son correctos.
+
+    if(
+        nombreValido &&
+        correoValido &&
+        asuntoValido &&
+        mensajeValido
+    ) {
+
+        resultado.textContent =
+        "✓ ¡Excelente! Todos los campos son válidos.";
+
+        resultado.style.color = "var(--verde)";
+
+    } else {
+resultado.textContent =
+        "✖ Hay campos incorrectos. Revisa los mensajes.";
+
+        resultado.style.color = "#ff526f";
+
+        document.querySelector(".invalido")?.focus();
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
